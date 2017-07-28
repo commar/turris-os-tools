@@ -1,0 +1,1 @@
+ln -s /www3/temperature_sensors  /www3/myadmin/temperature_sensors
