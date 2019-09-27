@@ -8,13 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=links
-PKG_VERSION:=2.14
+PKG_VERSION:=2.20.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://links.twibright.com/download
-PKG_MD5SUM:=2131be3232d05c56366ca3da8c7d4218
-PKG_MAINTAINER:=SvOlli <svolli@svolli.de>
+PKG_MAINTAINER:=commar <martin@commar.cz>
 
 PKG_LICENSE:=GPL
 PKG_LICENSE_FILES:=LICENSE
@@ -31,19 +30,19 @@ define Package/links
 $(call Package/links/Default)
   SECTION:=utils
   CATEGORY:=Utilities
-  DEPENDS:=+libbz2 zlib libevent2 libopenssl
-  TITLE:=links is a console web browser
+  DEPENDS:=+libbz2 xz zlib libevent2 libopenssl
+  TITLE:=links - console web browser
 endef
 
 define Package/links/description
-	links is a freely available, minimal web browser for console.
+	links - minimal web browser for console
 endef
 
 TARGET_CFLAGS += \
 	$(FPIC) \
 	$(TARGET_LDFLAGS)
 
-CONFIGURE_ARGS += --prefix=/usr --enable-javascript
+CONFIGURE_ARGS += --prefix=/usr
 
 MAKE_FLAGS += \
 	CFLAGS="$(TARGET_CFLAGS)" \
